@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 2: Actual versus Predicted Revenue for Couches and Sofas</h5>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Product ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Retail Price</th>
+      <th scope="col">Total Number Sold</th>
+      <th scope="col">Sold Discounted</th>
+      <th scope="col">Sold Retail Price</th>
+      <th scope="col">Actual Revenue</th>
+      <th scope="col">Predicted Revenue</th>
+      <th scope="col">DIFFERENCE</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data.predicted_revenue_report %}
+    <tr>
+      <td>{{row.product_pid}}</td>
+      <td>{{row.product_name}}</td>
+      <td>{{row.product_retail_price}}</td>
+      <td>{{row.total_units}}</td>
+      <td>{{row.units_at_discount}}</td>
+      <td>{{row.units_at_retail}}</td>
+      <td>{{row.actual_revenue}}</td>
+      <td>{{row.predicted_revenue}}</td>
+      <td>{{row.revenue_difference}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

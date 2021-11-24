@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 3: Store Revenue by Year by State</h5>
+<div class="col-12">
+  <form action="{{ url_for('report_3') }}">
+    <label for="state">Select a state:</label>
+    <select name="state" id="state">
+      {% for state in data.states %}
+      <option value="{{ state }}">{{ state }}</option>
+      {% endfor %}
+    </select>
+    <input class="btn btn-outline-dark btn-sm" type="submit" value="Submit">
+  </form>
+</div>
+<br>
+
+{% if data.selected_state %}
+<div class="col-12">
+  <h3>{{ data.selected_state }} Sales By Year</h3>
+</div>
+
+<div class="col-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Store Number</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.results %}
+      <tr>
+        <th scope="row">{{ row.year }}</td>
+        <td>{{ row.store_number }}</th>
+        <td>{{ row.address }}</td>
+        <td>{{ row.city }}</td>
+        <td>{{ row.revenue }}</td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

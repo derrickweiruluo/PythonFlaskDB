@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 5: State with Highest Volume for each Category </h5>
+<div class="col-12">
+  <form action="{{ url_for('report_5') }}">
+    <label for="start">Select Month and Year:</label>
+    <select name="month_year" id="month_year">
+      {% for month in data.months %}
+      <option value="{{ month }}">{{ month }}</option>
+      {% endfor %}
+    </select>
+    <input class="btn btn-outline-dark btn-sm" type="submit" value="Submit">
+  </form>
+</div>
+<br>
+
+{% if data.categories %}
+<div class="col-12">
+  <h3>{{ data.selected_month_and_year }} Sales Data</h3>
+</div>
+
+<div class="col-12">
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">State</th>
+        <th scope="col">Highest Volume</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.categories %}
+      <tr>
+        <td>{{row.category_name}}</td>
+        <td>{{row.state}}</td>
+        <td>{{row.volume}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

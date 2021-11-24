@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h5>Report 9: Advertising Campaign Analysis</h5>
+  <table class = "table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Sold During Campaign</th>
+        <th scope="col">Sold Outside Campaign</th>
+        <th scope="col">Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        <td>{{row.pid}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.quantity_campaign_on}}</td>
+        <td>{{row.quantity_campaign_off}}</td>
+        <td>{{row.difference}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

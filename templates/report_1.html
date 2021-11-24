@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 1: Category Report</h5>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Category Name</th>
+      <th scope="col">Category Count</th>
+      <th scope="col">Min Retail Price</th>
+      <th scope="col">Avg Retail Price</th>
+      <th scope="col">Max Retail Price</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data.category_report %} 
+    <tr>
+      <td>{{row.category_name}}</td>
+      <td>{{row.category_count}}</td>
+      <td>{{row.min_retail_price}}</td>
+      <td>{{row.avg_retail_price}}</td>
+      <td>{{row.max_retail_price}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

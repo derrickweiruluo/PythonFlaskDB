@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 6: Revenue by Population</h5>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Year</th>
+      <th scope="col">Small</th>
+      <th scope="col">Medium</th>
+      <th scope="col">Large</th>
+      <th scope="col">Extra Large</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data.revenue_by_population %} 
+      <tr>
+        <td>{{row.year}}</td>
+        <td>{{row.small}}</td>
+        <td>{{row.medium}}</td>
+        <td>{{row.large}}</td>
+        <td>{{row.extra_large}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

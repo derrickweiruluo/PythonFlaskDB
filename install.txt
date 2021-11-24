@@ -1,0 +1,32 @@
+MySQL installation
+- install MySQL for your OS (https://dev.mysql.com/downloads/mysql/)
+- during installation, set the password for the `root` user as `cs6400mysql`. If you set a different password, you'll need to edit the `main.py` file when you run locally.
+- choose "Run MySQL after installation", or start up MySQL after installation completes.
+- install and open MySQLWorkbench (https://dev.mysql.com/downloads/workbench/)
+- create a new MySQL Connection by selecting the (+) button
+    - you can pick any connection name
+    - leave Hostname as "127.0.0.1", Port as "3306", Username as "root"
+    - enter "cs6400mysql" for the password, "cs6400" for the Default Schema
+- in the new window, you should see the "cs6400" schema listed on the left
+- in the query field, enter all CREATE TABLE statements from Phase_2, and click the lightning bolt icon to run the statements
+
+Python installation
+- install Miniconda for your OS (https://docs.conda.io/en/latest/miniconda.html). You can use the latest Python version (3.9)
+- on the command line:
+    - make sure your conda install is up to date: run `conda update conda`
+    - create a new environment: run `conda create -n <env_name> python=3.7`
+        - replace <env_name> with the name of your choice
+    - activate your new environment: run `conda activate <env_name>`
+    - install the required python packages:
+        - run `conda install flask`
+        - run `pip install flask-mysql`
+
+Running the app
+- make sure MySQL is running on your computer
+- make sure you have the correct python environment running (`conda activate <env_name>`) 
+- navigate to the directory with the `main.py` file
+- start the application: run `FLASK_APP=main.py flask run`
+- the output should read `Running on http://127.0.0.1:5000/`
+- Enter `http://127.0.0.1:5000/` in a browser to load the app
+    
+   

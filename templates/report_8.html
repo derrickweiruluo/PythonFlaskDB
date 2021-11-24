@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <h5>Report 8: Restaurant Impact on Category Sales</h5>
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Store Type</th>
+          <th scope="col">Quantity Sold</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in data %}
+        <tr>
+          <th score="row" rowspan="2">{{ result.category }}</th>
+          <td>Non-restaurant</td>
+          <td>{{ result.without_restaurant_sales }}</td>
+        </tr>
+        <tr>
+          <td>Restaurant</td>
+          <td>{{ result.with_restaurant_sales }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

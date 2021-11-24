@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 4: Outdoor Furniture on Groundhog Day</h5>
+<div class="col-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Total Sales</th>
+        <th scope="col">Average Sales</th>
+        <th scope="col">Groundhog's Day Sales</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for result in data %}
+      <tr>
+        <th scope="row">{{ result.year }}</th>
+        <td>{{ result.total_quantity }}</td>
+        <td>{{ result.avg_quantity }}</td>
+        <td>{{ result.gh_quantity }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h5>Report 7: Childcare Sales Volume</h5>
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Month</th>
+      <th scope="col">No Childcare</th>
+      <th scope="col">30 Minutes</th>
+      <th scope="col">45 Minutes</th>
+      <th scope="col">60 Minutes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data.childcare_sales_volume %}
+    <tr>
+      <td>{{row.month}}</td>
+      <td>{{ row["0"] }}</td>
+      <td>{{ row["30"] }}</td>
+      <td>{{ row["45"] }}</td>
+      <td>{{ row["60"] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

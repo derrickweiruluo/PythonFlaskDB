@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3 class="mb-1">Edit City Population</h3>
+  <form action="{{ url_for('edit_city') }}">
+      <label for="state">Select a city:</label>
+      <select name="city" id="city">
+        {% for city in data.cities %}
+        <option value="{{ city }}">{{ city }}</option>
+        {% endfor %}
+      </select>
+    <div class="my-1 col-3">
+  		<input class="form-control form-control-sm" type="text" name="population" placeholder="Enter new population">
+  	</div>
+  	<input class="btn btn-outline-dark btn-sm" type="submit" value="Submit">
+  </form>
+{% endblock %}

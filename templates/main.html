@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if data.error_message %}
+  <div class="col-12 mt-4">
+    <div class="alert alert-danger" role="alert">
+      {{ data.error_message }}
+    </div>
+  </div>
+  {% endif %}
+  <div class="col-12 mt-4">
+    <p class="h5">Statistics</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stores</td>
+          <td>{{ data.store_count }}</td>
+        </tr>
+        <tr>
+          <td>Stores with food</td>
+          <td>{{ data.stores_with_food_count }}</td>
+        </tr>
+        <tr>
+          <td>Stores with childcare</td>
+          <td>{{ data.stores_with_child_care_count }}</td>
+        </tr>
+        <tr>
+          <td>Products</td>
+          <td>{{ data.product_count }}</td>
+        </tr>
+        <tr>
+          <td>Ad Campaigns</td>
+          <td>{{ data.campaigns_count }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="col-4 mb-5">
+      <p class="h5">Actions</p>
+      <div class="list-group">
+        <a href="{{ url_for('edit_holidays') }}" class="list-group-item list-group-item-action">Edit Holidays</a>
+        <a href="{{ url_for('edit_city') }}" class="list-group-item list-group-item-action">Edit City Populations</a>
+      </div>
+    </div>
+    <p class="h5">Holidays</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for holiday in data.holidays %}
+        <tr>
+          <td>{{ holiday.name }}</td>
+          <td>{{ holiday.date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+
+    <p class="h5">Cities</p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">City Name</th>
+          <th scope="col">Population</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for city in data.cities %}
+        <tr>
+          <td>{{ city.city_name }}</td>
+          <td>{{ city.population }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+{% endblock %}
